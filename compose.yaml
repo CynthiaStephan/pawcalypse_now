@@ -1,0 +1,32 @@
+services:
+ php:
+  build: .
+  container_name: my_name_php
+  depends_on:
+   - db
+  image: php:8.3-apache
+  volumes:
+   - ./php:/var/www/html/
+  ports:
+   - 80:80
+  networks:
+      - dev-php
+ db:
+  container_name: my_name_mysql
+  image: mysql:8.0
+  command: --default-authentication-plugin=mysql_native_password
+  environment:
+   MYSQL_ROOT_PASSWORD: rootpass
+   MYSQL_DATABASE: devdb
+   MYSQL_USER: devuser
+   MYSQL_PASSWORD: devpass
+  volumes:
+   - ./mysql/mysql_custom.cnf:/etc/mysql/conf.d/mysql_custom.cnf
+  ports:
+   - 9906:3306
+  networks:
+    - dev-php
+    
+networks:
+  dev-php:
+    driver: bridge
