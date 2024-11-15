@@ -1,7 +1,7 @@
 services:
  php:
   build: .
-  container_name: my_name_php
+  container_name: pawcalypse_php
   depends_on:
    - db
   image: php:8.3-apache
@@ -12,7 +12,7 @@ services:
   networks:
       - dev-php
  db:
-  container_name: my_name_mysql
+  container_name: pawcalypse_now_mysql
   image: mysql:8.0
   command: --default-authentication-plugin=mysql_native_password
   environment:
