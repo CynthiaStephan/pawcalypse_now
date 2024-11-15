@@ -1,6 +1,6 @@
 <?php
-$host = 'my_name_mysql';
-$dbname = 'local';
+$host = 'pawcalypse_now_mysql';
+$dbname = 'devdb';
 $username = 'devuser';
 $password = 'devpass';
 
